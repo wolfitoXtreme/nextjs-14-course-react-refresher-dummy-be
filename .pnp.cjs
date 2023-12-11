@@ -27,7 +27,8 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["body-parser", "npm:1.20.2"],\
-          ["express", "npm:4.18.2"]\
+          ["express", "npm:4.18.2"],\
+          ["uuid", "npm:9.0.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -602,7 +603,8 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["react-crash-course-backend", "workspace:."],\
           ["body-parser", "npm:1.20.2"],\
-          ["express", "npm:4.18.2"]\
+          ["express", "npm:4.18.2"],\
+          ["uuid", "npm:9.0.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -737,6 +739,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../C:/Users/Cesar/AppData/Local/Yarn/Berry/cache/utils-merge-npm-1.0.1-363bbdfbca-10c0.zip/node_modules/utils-merge/",\
         "packageDependencies": [\
           ["utils-merge", "npm:1.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["uuid", [\
+      ["npm:9.0.1", {\
+        "packageLocation": "../../../../C:/Users/Cesar/AppData/Local/Yarn/Berry/cache/uuid-npm-9.0.1-39a8442bc6-10c0.zip/node_modules/uuid/",\
+        "packageDependencies": [\
+          ["uuid", "npm:9.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\

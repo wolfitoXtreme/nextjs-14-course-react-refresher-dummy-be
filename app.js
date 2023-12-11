@@ -1,7 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const { v4: idGenerator } = require('uuid');
 
 const { getStoredPosts, storePosts } = require('./data/posts');
+const project = require('./package.json');
+
+const { name: projectName } = project;
+const port = process.env.PORT || 8080;
 
 const app = express();
 
@@ -18,7 +23,10 @@ app.use((req, res, next) => {
 
 app.get('/posts', async (req, res) => {
   const storedPosts = await getStoredPosts();
-  // await new Promise((resolve, reject) => setTimeout(() => resolve(), 1500));
+
+  // simulates request delay
+  await new Promise((resolve, reject) => setTimeout(() => resolve(), 1500));
+
   res.json({ posts: storedPosts });
 });
 
@@ -33,11 +41,16 @@ app.post('/posts', async (req, res) => {
   const postData = req.body;
   const newPost = {
     ...postData,
-    id: Math.random().toString(),
+    id: idGenerator()
   };
   const updatedPosts = [newPost, ...existingPosts];
   await storePosts(updatedPosts);
   res.status(201).json({ message: 'Stored new post.', post: newPost });
 });
 
-app.listen(8080);
+app.listen(8080, () => {
+  console.log(
+    projectName.toUpperCase() + ' - server is started!!, port: ',
+    port
+  );
+});
